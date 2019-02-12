@@ -32,8 +32,8 @@ test('json response', async t => {
 test('cors', withPage, async (t, page) => {
   const server = await createTestServer()
   server.use(ctx => (ctx.body = 'Moments'))
-  const result = await page.evaluate(url =>
-    fetch(url).then(response => response.text()),
+  const result = await page.evaluate(
+    url => window.fetch(url).then(response => response.text()),
     server.url
   )
   t.is(result, 'Moments')
