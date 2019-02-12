@@ -2,12 +2,23 @@ const http = require('http')
 const koa = require('koa')
 const json = require('koa-json')
 
-module.exports = function createTestServer () {
+const defaultOptions = { cors: false }
+
+module.exports = function createTestServer (options = defaultOptions) {
   // Create the Koa app instance.
   const app = new koa()
 
   // Use middleware that automatically pretty-prints JSON responses.
   app.use(json())
+
+  // If CORS is disabled, add the Access-Control-Allow-Origin header that
+  // accepts all requests to the response.
+  if (!options.cors) {
+    app.use(function disableCorsMiddleware (ctx, next) {
+      ctx.set('Access-Control-Allow-Origin', '*')
+      next()
+    })
+  }
 
   // Create the server that will listen and execute the Koa app on all requests
   // it receives.

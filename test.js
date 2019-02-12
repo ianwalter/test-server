@@ -1,27 +1,40 @@
 import test from 'ava'
-import createTestServer from '.'
 import got from 'got'
+import puppeteerHelper from '@ianwalter/puppeteer-helper'
+import createTestServer from '.'
+
+const withPage = puppeteerHelper([], { dumpio: true })
 
 test('server created', async t => {
-  const app = await createTestServer()
-  t.truthy(app.port)
-  t.truthy(app.url)
-  await app.close()
+  const server = await createTestServer()
+  t.truthy(server.port)
+  t.truthy(server.url)
+  await server.close()
 })
 
 test('request handler', async t => {
-  const app = await createTestServer()
+  const server = await createTestServer()
   const msg = 'Nobody Lost, Nobody Found'
-  app.use(ctx => (ctx.body = msg))
-  const { body } = await got(app.url)
+  server.use(ctx => (ctx.body = msg))
+  const { body } = await got(server.url)
   t.is(body, msg)
-  await app.close()
+  await server.close()
 })
 
 test('json response', async t => {
-  const app = await createTestServer()
-  app.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
-  const { body } = await got(app.url)
+  const server = await createTestServer()
+  server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
+  const { body } = await got(server.url)
   t.snapshot(body)
-  await app.close()
+  await server.close()
+})
+
+test('cors', withPage, async (t, page) => {
+  const server = await createTestServer()
+  server.use(ctx => (ctx.body = 'Moments'))
+  const result = await page.evaluate(url =>
+    fetch(url).then(response => response.text()),
+    server.url
+  )
+  t.is(result, 'Moments')
 })
