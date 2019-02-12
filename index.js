@@ -1,9 +1,13 @@
 const http = require('http')
 const koa = require('koa')
+const json = require('koa-json')
 
 module.exports = function createTestServer () {
   // Create the Koa app instance.
   const app = new koa()
+
+  // Use middleware that automatically pretty-prints JSON responses.
+  app.use(json())
 
   // Create the server that will listen and execute the Koa app on all requests
   // it receives.

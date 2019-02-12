@@ -14,7 +14,14 @@ test('request handler', async t => {
   const msg = 'Nobody Lost, Nobody Found'
   app.use(ctx => (ctx.body = msg))
   const { body } = await got(app.url)
-  t.log(body)
   t.is(body, msg)
+  await app.close()
+})
+
+test('json response', async t => {
+  const app = await createTestServer()
+  app.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
+  const { body } = await got(app.url)
+  t.snapshot(body)
   await app.close()
 })
