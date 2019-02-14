@@ -325,6 +325,18 @@
   dependencies:
     arrify "^1.0.1"
 
+"@ianwalter/clone@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-2.0.1.tgz#c9f37e2d13e386d3a63e632e6a6199fd44d71bed"
+  integrity sha512-SiDz8Vh59ZzQk98HKxf54j5D/ER0hV8hPU78Lw5I5YzdJJUQK/pZGBQJO0bfJsNVmy8eAbjYR7N1IR0Mn1qsNg==
+
+"@ianwalter/log@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/log/-/log-2.0.0.tgz#3ed80b4a9e2b2529659bef9608f5a45113b0cb03"
+  integrity sha512-EM+WCSxospiphGCQ1dWQOxn/tBKJIJUyI1joRbZa7O9tCP8Zv/T0wsZ1N3w+7/bpf/5WLtoOBkqGIaIwdgOYJg==
+  dependencies:
+    "@ianwalter/clone" "^2.0.1"
+
 "@ianwalter/puppeteer-helper@^3.0.0":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/puppeteer-helper/-/puppeteer-helper-3.0.0.tgz#c92835f2f41548d3fe290738a5bc50c3f0b95f0e"

@@ -38,3 +38,15 @@ test('cors', withPage, async (t, page) => {
   )
   t.is(result, 'Moments')
 })
+
+test('error', async t => {
+  const server = await createTestServer()
+  server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
+  try {
+    await got(server.url)
+  } catch (err) {
+    t.pass()
+  } finally {
+    await server.close()
+  }
+})
