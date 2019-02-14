@@ -39,4 +39,4 @@ Created by [Ian Walter](https://iankwalter.com)
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/test-server
 [koaUrl]: https://github.com/koajs/koa
 [ctsUrl]: https://github.com/lukechilds/create-test-server
-[licenseUrl]: https://github.com/ianwalter/http/blob/master/LICENSE
+[licenseUrl]: https://github.com/ianwalter/test-server/blob/master/LICENSE

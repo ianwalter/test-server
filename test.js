@@ -3,7 +3,7 @@ import got from 'got'
 import puppeteerHelper from '@ianwalter/puppeteer-helper'
 import createTestServer from '.'
 
-const withPage = puppeteerHelper([], { dumpio: true })
+const withPage = puppeteerHelper()
 
 test('server created', async t => {
   const server = await createTestServer()
