@@ -2,6 +2,7 @@ const http = require('http')
 const Koa = require('koa')
 const json = require('koa-json')
 const log = require('@ianwalter/log')
+const enableDestroy = require('server-destroy')
 
 const defaultOptions = { cors: false }
 
@@ -36,18 +37,14 @@ module.exports = function createTestServer (options = defaultOptions) {
   // it receives.
   const server = http.createServer(app.callback())
 
+  // Add a destroy method to the server instance.
+  // https://github.com/nodejs/node/issues/2642
+  enableDestroy(server)
+
   // Add a close method to the Koa app to allow the caller / receiver of the Koa
   // app to close the server when done with it.
   app.close = function close () {
-    return new Promise((resolve, reject) => {
-      server.close(err => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(app)
-        }
-      })
-    })
+    return new Promise(resolve => server.destroy(resolve))
   }
 
   // Return the Koa app instance when the server has started listening.

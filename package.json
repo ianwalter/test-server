@@ -32,7 +32,8 @@
   "dependencies": {
     "@ianwalter/log": "^2.0.0",
     "koa": "^2.7.0",
-    "koa-json": "^2.0.2"
+    "koa-json": "^2.0.2",
+    "server-destroy": "^1.0.1"
   },
   "devDependencies": {
     "@ianwalter/puppeteer-helper": "^3.0.0",
