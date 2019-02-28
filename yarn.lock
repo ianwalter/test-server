@@ -338,11 +338,12 @@
     "@ianwalter/clone" "^2.0.1"
 
 "@ianwalter/puppeteer-helper@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/puppeteer-helper/-/puppeteer-helper-3.0.0.tgz#c92835f2f41548d3fe290738a5bc50c3f0b95f0e"
-  integrity sha512-4LXDRrWt5EMXIm0b7z47Jml273Vdjb/nzq4bSSp/WC+AsHijeHY9hJnpwpnZ1M20P19oe2vaN87KqctcT2gb5Q==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/puppeteer-helper/-/puppeteer-helper-3.2.0.tgz#50ab2a0f3554fc3668b856bab3a98cba8c01895a"
+  integrity sha512-5Sz3ZeUuM9ZkT/6UFC6T8famDdrhRdx17MRHNiBXEkobPLwAIOx7QM7JfR9Jlm6w6yD+dV6sHirTHJSYwUSejA==
   dependencies:
     memory-fs "^0.4.1"
+    prettydiff "^100.2.3"
     puppeteer "^1.11.0"
     webpack "^4.29.3"
 
@@ -364,6 +365,11 @@
   integrity sha512-XIB2XbzHTN6ieIjfIMV9hlVcfPU26s2vafYWQcZHWXHOxiaRZYEDKEwdl129Zyg50+foYV2jCgtrqSA6qNuNSA==
   dependencies:
     defer-to-connect "^1.0.1"
+
+"@types/node@^10.12.27":
+  version "10.12.27"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.12.27.tgz#eb3843f15d0ba0986cc7e4d734d2ee8b50709ef8"
+  integrity sha512-e9wgeY6gaY21on3ve0xAjgBVjGDWq/xUteK0ujsE53bUoxycMkqfnkUgMt6ffZtykZ5X12Mg3T7Pw4TRCObDKg==
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -2223,6 +2229,11 @@ file-entry-cache@^5.0.1:
   integrity sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
   dependencies:
     flat-cache "^2.0.1"
+
+file-saver@^1.3.8:
+  version "1.3.8"
+  resolved "https://registry.yarnpkg.com/file-saver/-/file-saver-1.3.8.tgz#e68a30c7cb044e2fb362b428469feb291c2e09d8"
+  integrity sha512-spKHSBQIxxS81N/O21WmuXA2F6wppUCsutpzenOeZzOCCJ5gEfcbqJP983IrpLXzYmXnMUa6J03SubcNPdKrlg==
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -4344,6 +4355,15 @@ pretty-ms@^4.0.0:
   dependencies:
     parse-ms "^2.0.0"
 
+prettydiff@^100.2.3:
+  version "100.2.3"
+  resolved "https://registry.yarnpkg.com/prettydiff/-/prettydiff-100.2.3.tgz#cdeffea26b4f0dd74af7d5e5b68df203493d0c7e"
+  integrity sha512-AGDNGn9C11balmRIC9jX2C7VfLQzd4m18gdyN2U4qzUo/0iQBM/4/6P42JTepp48JOUINzkNUL9jYf5fKLU1qA==
+  dependencies:
+    "@types/node" "^10.12.27"
+    file-saver "^1.3.8"
+    sparser "^1.0.5"
+
 process-nextick-args@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.0.tgz#a37d732f4271b4ab1ad070d35508e8290788ffaa"
@@ -4986,6 +5006,13 @@ source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+
+sparser@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/sparser/-/sparser-1.0.5.tgz#1b99255aa49716ecb692a8b889b9cbd5e543e173"
+  integrity sha512-hVg+zeKHhTAsFdaOfVjnuAmYWekYFYy0x//MEbKpR0/cCcLwRxHHVlO1uSSvVkrod5hdJn9hzeU3uNKtobHqiQ==
+  dependencies:
+    "@types/node" "^10.12.27"
 
 spdx-correct@^3.0.0:
   version "3.1.0"
