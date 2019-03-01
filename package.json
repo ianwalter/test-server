@@ -36,7 +36,7 @@
     "server-destroy": "^1.0.1"
   },
   "devDependencies": {
-    "@ianwalter/puppeteer-helper": "^3.0.0",
+    "@ianwalter/puppeteer-helper": "^4.0.0",
     "ava": "^1.2.1",
     "eslint": "^5.12.0",
     "eslint-config-standard": "^12.0.0",
