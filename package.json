@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/test-server",
   "version": "1.2.0",
-  "description": "> Easily create a minimal [Koa][koaUrl] server for testing",
+  "description": "Easily create a minimal [Koa][koaUrl] server for testing",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "repository": {
@@ -36,22 +36,16 @@
     "server-destroy": "^1.0.1"
   },
   "devDependencies": {
+    "@ianwalter/eslint-config": "^1.1.0",
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "ava": "^1.2.1",
-    "eslint": "^5.12.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0",
     "got": "^9.6.0",
     "np": "^4.0.2"
   },
   "eslintConfig": {
     "root": true,
     "extends": [
-      "eslint:recommended",
-      "standard"
+      "@ianwalter/eslint-config"
     ]
   }
 }
