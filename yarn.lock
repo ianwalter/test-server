@@ -377,11 +377,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@ianwalter/clone@^2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-2.0.1.tgz#c9f37e2d13e386d3a63e632e6a6199fd44d71bed"
-  integrity sha512-SiDz8Vh59ZzQk98HKxf54j5D/ER0hV8hPU78Lw5I5YzdJJUQK/pZGBQJO0bfJsNVmy8eAbjYR7N1IR0Mn1qsNg==
-
 "@ianwalter/eslint-config@^1.1.0":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-1.1.2.tgz#a88bbc4b09d715c53d59571690c1a3b56d56ebdb"
@@ -395,12 +390,10 @@
     eslint-plugin-promise "^4.0.1"
     eslint-plugin-standard "^4.0.0"
 
-"@ianwalter/log@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/log/-/log-2.0.0.tgz#3ed80b4a9e2b2529659bef9608f5a45113b0cb03"
-  integrity sha512-EM+WCSxospiphGCQ1dWQOxn/tBKJIJUyI1joRbZa7O9tCP8Zv/T0wsZ1N3w+7/bpf/5WLtoOBkqGIaIwdgOYJg==
-  dependencies:
-    "@ianwalter/clone" "^2.0.1"
+"@ianwalter/log@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/log/-/log-3.0.0.tgz#c85f7343e28e98d0a4c872a42e6bdd6d8b302e8d"
+  integrity sha512-CAB1LaZUDUvQexuZYXmRhaFrpNqguIwA+ciB8+uvDm9dakNX3H+Yd7VIOisvx/y4GljH2hSrlTfCzhy14/0/YQ==
 
 "@ianwalter/merge@^2.0.1":
   version "2.0.1"
