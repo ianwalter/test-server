@@ -1,7 +1,7 @@
 const http = require('http')
 const Koa = require('koa')
 const json = require('koa-json')
-const log = require('@ianwalter/log')
+const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 
 const defaultOptions = { cors: false }
@@ -15,7 +15,7 @@ module.exports = function createTestServer (options = defaultOptions) {
     try {
       await next()
     } catch (err) {
-      log.error(err)
+      print.error(err)
       ctx.status = err.statusCode || err.status || 500
       ctx.app.emit('error', err, ctx)
     }

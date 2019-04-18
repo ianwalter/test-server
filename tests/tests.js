@@ -1,14 +1,11 @@
-import test from 'ava'
-import got from 'got'
-import puppeteerHelper from '@ianwalter/puppeteer-helper'
-import createTestServer from '.'
+const { test } = require('@ianwalter/bff')
+const got = require('got')
+const createTestServer = require('..')
 
-const withPage = puppeteerHelper()
-
-test('server created', async t => {
+test('server created', async ({ expect }) => {
   const server = await createTestServer()
-  t.truthy(server.port)
-  t.truthy(server.url)
+  expect(server.port).toBeGreaterThan(0)
+  expect(server.url).toBeTruthy()
   await server.close()
 })
 
@@ -29,15 +26,15 @@ test('json response', async t => {
   await server.close()
 })
 
-test('cors', withPage, async (t, page) => {
-  const server = await createTestServer()
-  server.use(ctx => (ctx.body = 'Moments'))
-  const result = await page.evaluate(
-    url => window.fetch(url).then(response => response.text()),
-    server.url
-  )
-  t.is(result, 'Moments')
-})
+// test('cors', async (t, page) => {
+//   const server = await createTestServer()
+//   server.use(ctx => (ctx.body = 'Moments'))
+//   const result = await page.evaluate(
+//     url => window.fetch(url).then(response => response.text()),
+//     server.url
+//   )
+//   t.is(result, 'Moments')
+// })
 
 test('error', async t => {
   const server = await createTestServer()
