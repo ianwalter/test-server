@@ -40,7 +40,7 @@
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "ava": "^1.2.1",
     "got": "^9.6.0",
-    "np": "^4.0.2"
+    "np": "^5.0.0"
   },
   "eslintConfig": {
     "root": true,
