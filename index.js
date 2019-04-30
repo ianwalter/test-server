@@ -12,7 +12,7 @@ module.exports = function createTestServer (options = defaultOptions) {
   const app = new Koa()
 
   // Add the bodyparser middleware that can parse a request body into json, etc.
-  app.use(bodyParser())
+  app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
 
   // Add error-handling middleware.
   app.use(async function errorHandlingMiddleware (ctx, next) {
