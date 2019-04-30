@@ -33,6 +33,7 @@ module.exports = function createTestServer (options = defaultOptions) {
   if (!options.cors) {
     app.use(async function disableCorsMiddleware (ctx, next) {
       ctx.set('Access-Control-Allow-Origin', '*')
+      ctx.set('Access-Control-Allow-Headers', '*')
       return next()
     })
   }
