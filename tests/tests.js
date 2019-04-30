@@ -9,20 +9,20 @@ test('server created', async ({ expect }) => {
   await server.close()
 })
 
-test('request handler', async t => {
+test('request handler', async ({ expect }) => {
   const server = await createTestServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use(ctx => (ctx.body = msg))
   const { body } = await got(server.url)
-  t.is(body, msg)
+  expect(body).toBe(msg)
   await server.close()
 })
 
-test('json response', async t => {
+test('json response', async ({ expect }) => {
   const server = await createTestServer()
   server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
   const { body } = await got(server.url)
-  t.snapshot(body)
+  expect(body).toMatchSnapshot()
   await server.close()
 })
 
@@ -36,13 +36,13 @@ test('json response', async t => {
 //   t.is(result, 'Moments')
 // })
 
-test('error', async t => {
+test('error', async ({ pass }) => {
   const server = await createTestServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
     await got(server.url)
   } catch (err) {
-    t.pass()
+    pass()
   } finally {
     await server.close()
   }

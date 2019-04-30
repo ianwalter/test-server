@@ -27,7 +27,7 @@
   ],
   "scripts": {
     "lint": "eslint index.js test.js",
-    "test": "ava"
+    "test": "bff"
   },
   "dependencies": {
     "@ianwalter/print": "^2.3.0",
@@ -36,7 +36,7 @@
     "server-destroy": "^1.0.1"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^2.10.0",
+    "@ianwalter/bff": "^4.0.1",
     "@ianwalter/eslint-config": "^1.1.0",
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "got": "^9.6.0",
@@ -45,7 +45,7 @@
   "eslintConfig": {
     "root": true,
     "extends": [
-      "@ianwalter/eslint-config"
+      "@ianwalter"
     ]
   }
 }
