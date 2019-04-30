@@ -32,6 +32,7 @@
   "dependencies": {
     "@ianwalter/print": "^2.3.0",
     "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
     "koa-json": "^2.0.2",
     "server-destroy": "^1.0.1"
   },
@@ -39,8 +40,8 @@
     "@ianwalter/bff": "^4.0.1",
     "@ianwalter/eslint-config": "^1.1.0",
     "@ianwalter/puppeteer-helper": "^4.0.0",
-    "got": "^9.6.0",
-    "np": "^4.0.2"
+    "np": "^4.0.2",
+    "r2": "^2.0.1"
   },
   "eslintConfig": {
     "root": true,

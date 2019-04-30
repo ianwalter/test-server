@@ -3,12 +3,16 @@ const Koa = require('koa')
 const json = require('koa-json')
 const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
+const bodyParser = require('koa-bodyparser')
 
 const defaultOptions = { cors: false }
 
 module.exports = function createTestServer (options = defaultOptions) {
   // Create the Koa app instance.
   const app = new Koa()
+
+  // Add the bodyparser middleware that can parse a request body into json, etc.
+  app.use(bodyParser())
 
   // Add error-handling middleware.
   app.use(async function errorHandlingMiddleware (ctx, next) {

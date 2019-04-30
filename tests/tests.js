@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const got = require('got')
+const r2 = require('r2')
 const createTestServer = require('..')
 
 test('server created', async ({ expect }) => {
@@ -13,7 +13,7 @@ test('request handler', async ({ expect }) => {
   const server = await createTestServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use(ctx => (ctx.body = msg))
-  const { body } = await got(server.url)
+  const body = await r2(server.url).text
   expect(body).toBe(msg)
   await server.close()
 })
@@ -21,8 +21,17 @@ test('request handler', async ({ expect }) => {
 test('json response', async ({ expect }) => {
   const server = await createTestServer()
   server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
-  const { body } = await got(server.url)
+  const body = await r2(server.url).text
   expect(body).toMatchSnapshot()
+  await server.close()
+})
+
+test('json request', async ({ expect }) => {
+  const server = await createTestServer()
+  server.use(ctx => (ctx.body = ctx.request.body))
+  const json = { name: 'When Am I Gonna Lose You' }
+  const body = await r2.post(server.url, { json }).json
+  expect(body).toEqual(json)
   await server.close()
 })
 
@@ -40,7 +49,7 @@ test('error', async ({ pass }) => {
   const server = await createTestServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
-    await got(server.url)
+    await r2(server.url).json
   } catch (err) {
     pass()
   } finally {
