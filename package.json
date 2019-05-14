@@ -1,6 +1,6 @@
 {
   "name": "@ianwalter/test-server",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Easily create a minimal [Koa][koaUrl] server for testing",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
