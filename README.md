@@ -16,13 +16,14 @@ yarn add @ianwalter/test-server --dev
 ## Usage
 
 ```js
-import createTestServer from '@ianwalter/test-server'
+const { test } = require('@ianwalter/bff')
+const createTestServer = require('@ianwalter/test-server')
 
-test('got', t => {
+test('got', ({ expect }) => {
   const server = await createTestServer()
   server.use(ctx => (ctx.body = 'Hello World!'))
   const response = await got(server.url)
-  t.is(response.body, 'Hello World!')
+  expect(response.body).toBe('Hello World!')
   await server.close()
 })
 ```
