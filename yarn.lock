@@ -185,6 +185,11 @@
     pkg-conf "^3.1.0"
     yargs "^13.2.2"
 
+"@ianwalter/clone@^4.1.0":
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-4.1.0.tgz#635860922699338da607b8e990ae5173e3e3e9c9"
+  integrity sha512-UWlp3DtPvLgZkS3hy6ihHQATjQC1BtoJxk4PCO/v7r8m7P4g0WkdacadpUh0ze3yNqO+uFIRW2RX1boGz7feQQ==
+
 "@ianwalter/eslint-config@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@ianwalter/eslint-config/-/eslint-config-2.1.1.tgz#3de94cb9b489a4ebe4f06412409cdacab1e4752d"
@@ -227,16 +232,17 @@
     has-ansi "^3.0.0"
     has-emoji "^1.0.0"
 
-"@ianwalter/print@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.0.1.tgz#73d81f83fcb6366331704985e0c7ebe8c914a812"
-  integrity sha512-g2QKEUaOuhKR2WdY0nPXbBPA1KifKAH/9u47JdIIizkJQB+Mq1Pd6yLRKiaEQWQCUiPag3gIch+2YHVC4M1nPQ==
+"@ianwalter/print@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.1.0.tgz#8195e77a55eddab0815a2865858e27de9e6d7c3f"
+  integrity sha512-rlsigede8Gq+VauG0KhPAJqlaFq4IM/DqBKLfawGeuwLOKQevTZTySQvYZ9yQJDdLZZuRG7yEkxEL4o50JXNQg==
   dependencies:
+    "@ianwalter/clone" "^4.1.0"
     "@ianwalter/log" "^3.0.0"
     chalk "^2.4.2"
     chromafi ianwalter/chromafi
     has-ansi "^3.0.0"
-    has-emoji "^1.0.0"
+    has-emoji "^1.1.0"
 
 "@ianwalter/puppeteer-helper@^4.0.0":
   version "4.0.0"
@@ -2105,6 +2111,11 @@ emoji-regex@^7.0.1:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==
 
+emoji-regex@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
+  integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+
 emojis-list@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-2.1.0.tgz#4daa4d9db00f9819880c79fa457ae5b09a1fd389"
@@ -2927,6 +2938,13 @@ has-emoji@^1.0.0:
   integrity sha512-ILqOY8xHhXncSMaksD3jyGx+SxhjT/IStZFZTGj1ytullKfHLTgviIWUxTUjw+ve+lnt397S9aWaxdAfp1niXQ==
   dependencies:
     emoji-regex "^6.5.1"
+
+has-emoji@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/has-emoji/-/has-emoji-1.1.0.tgz#8b9a13c1fedb92099fccc171628869a9dbab4091"
+  integrity sha512-5V4f0i0shdp6BzSE5WLBKh0EJky6wAo+b1pRS2Azm8cyJCekNxXhhAQJopYto3iMluh5rKD9n+vjQLZb7iR6+g==
+  dependencies:
+    emoji-regex "^8.0.0"
 
 has-flag@^2.0.0:
   version "2.0.0"
