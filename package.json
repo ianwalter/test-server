@@ -30,7 +30,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/print": "^3.1.0",
+    "@ianwalter/print": "^3.2.0",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
     "koa-json": "^2.0.2",
