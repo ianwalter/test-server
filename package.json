@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/test-server",
   "version": "1.4.3",
-  "description": "Easily create a minimal [Koa][koaUrl] server for testing",
+  "description": "Easily create a minimal Koa or Express server for testing",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "repository": {
@@ -28,7 +28,7 @@
     "express.js"
   ],
   "scripts": {
-    "lint": "eslint index.js tests",
+    "lint": "eslint .",
     "test": "bff"
   },
   "dependencies": {
