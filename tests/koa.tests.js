@@ -35,17 +35,17 @@ test('json request', async ({ expect }) => {
   await server.close()
 })
 
-// test('cors', async (t, page) => {
-//   const server = await createKoaServer()
-//   server.use(ctx => (ctx.body = 'Moments'))
-//   const result = await page.evaluate(
-//     url => window.fetch(url).then(response => response.text()),
-//     server.url
-//   )
-//   t.is(result, 'Moments')
-// })
+test.skip('cors', async (t, page) => {
+  const server = await createKoaServer()
+  server.use(ctx => (ctx.body = 'Moments'))
+  const result = await page.evaluate(
+    url => window.fetch(url).then(response => response.text()),
+    server.url
+  )
+  t.is(result, 'Moments')
+})
 
-test('error', async ({ pass }) => {
+test.skip('error', async ({ pass }) => {
   const server = await createKoaServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {

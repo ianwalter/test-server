@@ -11,9 +11,6 @@ module.exports = function createKoaServer (options = defaultOptions) {
   // Create the Koa app instance.
   const app = new Koa()
 
-  // Add the bodyparser middleware that can parse a request body into json, etc.
-  app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
-
   // Add error-handling middleware.
   app.use(async function errorHandlingMiddleware (ctx, next) {
     try {
@@ -24,6 +21,9 @@ module.exports = function createKoaServer (options = defaultOptions) {
       ctx.app.emit('error', err, ctx)
     }
   })
+
+  // Add the bodyparser middleware that can parse a request body into json, etc.
+  app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
 
   // Use middleware that automatically pretty-prints JSON responses.
   app.use(json())
