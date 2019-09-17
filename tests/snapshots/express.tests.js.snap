@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Koa json response 1`] = `
+exports[`Express json response 1`] = `
 Object {
   "name": "Out There On the Ice",
 }

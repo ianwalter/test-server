@@ -1,42 +1,42 @@
 const { test } = require('@ianwalter/bff')
 const { requester } = require('@ianwalter/requester')
-const { createKoaServer } = require('..')
+const { createExpressServer } = require('..')
 
-test('Koa server created', async ({ expect }) => {
-  const server = await createKoaServer()
+test('Express server created', async ({ expect }) => {
+  const server = await createExpressServer()
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()
   await server.close()
 })
 
-test('Koa request handler', async ({ expect }) => {
-  const server = await createKoaServer()
+test('Express request handler', async ({ expect }) => {
+  const server = await createExpressServer()
   const msg = 'Nobody Lost, Nobody Found'
-  server.use(ctx => (ctx.body = msg))
+  server.use((req, res) => res.send(msg))
   const { body } = await requester.get(server.url)
   expect(body).toBe(msg)
   await server.close()
 })
 
-test('Koa json response', async ({ expect }) => {
-  const server = await createKoaServer()
-  server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
+test('Express json response', async ({ expect }) => {
+  const server = await createExpressServer()
+  server.use((req, res) => res.json({ name: 'Out There On the Ice' }))
   const { body } = await requester.get(server.url)
   expect(body).toMatchSnapshot()
   await server.close()
 })
 
-test('Koa json request', async ({ expect }) => {
-  const server = await createKoaServer()
-  server.use(ctx => (ctx.body = ctx.request.body))
+test('Express json request', async ({ expect }) => {
+  const server = await createExpressServer()
+  server.use((req, res) => res.json(req.body))
   const body = { name: 'When Am I Gonna Lose You' }
   const response = await requester.post(server.url, { body })
   expect(response.body).toEqual(body)
   await server.close()
 })
 
-test.skip('Koa cors', async (t, page) => {
-  const server = await createKoaServer()
+test.skip('Express cors', async (t, page) => {
+  const server = await createExpressServer()
   server.use(ctx => (ctx.body = 'Moments'))
   const result = await page.evaluate(
     url => window.fetch(url).then(response => response.text()),
@@ -45,8 +45,8 @@ test.skip('Koa cors', async (t, page) => {
   t.is(result, 'Moments')
 })
 
-test.skip('Koa error', async ({ pass }) => {
-  const server = await createKoaServer()
+test.skip('Express error', async ({ pass }) => {
+  const server = await createExpressServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
     await requester.get(server.url)
