@@ -4,9 +4,7 @@ const bodyParser = require('body-parser')
 const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 
-const defaultOptions = { cors: false }
-
-module.exports = function createExpressServer (options = defaultOptions) {
+module.exports = function createExpressServer () {
   // Create the Exoress app instance.
   const app = express()
 
