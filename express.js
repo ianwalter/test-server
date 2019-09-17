@@ -18,6 +18,7 @@ module.exports = function createExpressServer () {
   app.use(function errorHandlingMiddleware (err, req, res, next) {
     print.error(err)
     res.status(err.statusCode || err.status || 500)
+    next()
   })
 
   // Create the server that will listen and execute the Koa app on all requests
