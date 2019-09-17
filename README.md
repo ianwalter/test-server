@@ -1,7 +1,9 @@
 # @ianwalter/test-server
-> Easily create a minimal [Koa][koaUrl] server for testing
+> Easily create a minimal [Koa][koaUrl] or [Express][expressUrl] server for
+> testing
 
 [![npm page][npmImage]][npmUrl]
+[![CI][ciImage]][ciUrl]
 
 ## About
 
@@ -17,12 +19,13 @@ yarn add @ianwalter/test-server --dev
 
 ```js
 const { test } = require('@ianwalter/bff')
-const createTestServer = require('@ianwalter/test-server')
+const { createKoaServer } = require('@ianwalter/test-server')
+const { requester } = require('@ianwalter/requester')
 
-test('got', ({ expect }) => {
-  const server = await createTestServer()
+test('requester', ({ expect }) => {
+  const server = await createKoaServer()
   server.use(ctx => (ctx.body = 'Hello World!'))
-  const response = await got(server.url)
+  const response = await requester.get(server.url)
   expect(response.body).toBe('Hello World!')
   await server.close()
 })
@@ -36,8 +39,11 @@ Apache 2.0 with Commons Clause - See [LICENSE][licenseUrl]
 
 Created by [Ian Walter](https://iankwalter.com)
 
+[koaUrl]: https://github.com/koajs/koa
+[expressUrl]: https://expressjs.com/
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/test-server.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/test-server
-[koaUrl]: https://github.com/koajs/koa
+[ciImage]: https://github.com/ianwalter/test-server/workflows/CI/badge.svg
+[ciUrl]: https://github.com/ianwalter/test-server/actions
 [ctsUrl]: https://github.com/lukechilds/create-test-server
 [licenseUrl]: https://github.com/ianwalter/test-server/blob/master/LICENSE

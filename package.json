@@ -1,7 +1,7 @@
 {
   "name": "@ianwalter/test-server",
   "version": "1.4.3",
-  "description": "Easily create a minimal [Koa][koaUrl] server for testing",
+  "description": "Easily create a minimal Koa or Express server for testing",
   "license": "SEE LICENSE IN LICENSE",
   "main": "index.js",
   "repository": {
@@ -15,7 +15,8 @@
     "koa",
     "testing",
     "unit",
-    "mock"
+    "mock",
+    "express"
   ],
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "bugs": {
@@ -23,14 +24,18 @@
   },
   "homepage": "https://github.com/ianwalter/test-server#readme",
   "files": [
-    "index.js"
+    "index.js",
+    "koa.js",
+    "express.js"
   ],
   "scripts": {
-    "lint": "eslint index.js tests",
+    "lint": "eslint .",
     "test": "bff"
   },
   "dependencies": {
     "@ianwalter/print": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
     "koa-json": "^2.0.2",
@@ -42,7 +47,7 @@
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "@ianwalter/release": "^3.0.3",
     "@ianwalter/renovate-config": "^1.2.0",
-    "r2": "^2.0.1"
+    "@ianwalter/requester": "^1.2.0"
   },
   "eslintConfig": {
     "root": true,

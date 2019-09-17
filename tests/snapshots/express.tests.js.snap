@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Express json response 1`] = `
+Object {
+  "name": "Out There On the Ice",
+}
+`;
+
+exports[`json response 1`] = `
+Object {
+  "name": "Out There On the Ice",
+}
+`;
