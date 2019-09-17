@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`json response 1`] = `
-"{
-  \\"name\\": \\"Out There On the Ice\\"
-}"
+Object {
+  "name": "Out There On the Ice",
+}
 `;

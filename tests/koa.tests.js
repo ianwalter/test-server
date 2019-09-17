@@ -1,5 +1,5 @@
 const { test } = require('@ianwalter/bff')
-const r2 = require('r2')
+const { requester } = require('@ianwalter/requester')
 const { createKoaServer } = require('..')
 
 test('server created', async ({ expect }) => {
@@ -13,7 +13,7 @@ test('request handler', async ({ expect }) => {
   const server = await createKoaServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use(ctx => (ctx.body = msg))
-  const body = await r2(server.url).text
+  const { body } = await requester.get(server.url)
   expect(body).toBe(msg)
   await server.close()
 })
@@ -21,7 +21,7 @@ test('request handler', async ({ expect }) => {
 test('json response', async ({ expect }) => {
   const server = await createKoaServer()
   server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
-  const body = await r2(server.url).text
+  const { body } = await requester.get(server.url)
   expect(body).toMatchSnapshot()
   await server.close()
 })
@@ -29,14 +29,14 @@ test('json response', async ({ expect }) => {
 test('json request', async ({ expect }) => {
   const server = await createKoaServer()
   server.use(ctx => (ctx.body = ctx.request.body))
-  const json = { name: 'When Am I Gonna Lose You' }
-  const body = await r2.post(server.url, { json }).json
-  expect(body).toEqual(json)
+  const body = { name: 'When Am I Gonna Lose You' }
+  const response = await requester.post(server.url, { body })
+  expect(response.body).toEqual(body)
   await server.close()
 })
 
 // test('cors', async (t, page) => {
-//   const server = await createTestServer()
+//   const server = await createKoaServer()
 //   server.use(ctx => (ctx.body = 'Moments'))
 //   const result = await page.evaluate(
 //     url => window.fetch(url).then(response => response.text()),
@@ -49,7 +49,7 @@ test('error', async ({ pass }) => {
   const server = await createKoaServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
-    await r2(server.url).json
+    await requester.get(server.url)
   } catch (err) {
     pass()
   } finally {
