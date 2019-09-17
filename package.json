@@ -15,7 +15,8 @@
     "koa",
     "testing",
     "unit",
-    "mock"
+    "mock",
+    "express"
   ],
   "author": "Ian Walter <public@iankwalter.com> (https://iankwalter.com)",
   "bugs": {

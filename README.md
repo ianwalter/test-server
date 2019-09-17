@@ -3,6 +3,7 @@
 > testing
 
 [![npm page][npmImage]][npmUrl]
+[![CI][ciImage]][ciUrl]
 
 ## About
 
@@ -19,11 +20,12 @@ yarn add @ianwalter/test-server --dev
 ```js
 const { test } = require('@ianwalter/bff')
 const { createKoaServer } = require('@ianwalter/test-server')
+const { requester } = require('@ianwalter/requester')
 
-test('got', ({ expect }) => {
+test('requester', ({ expect }) => {
   const server = await createKoaServer()
   server.use(ctx => (ctx.body = 'Hello World!'))
-  const response = await got(server.url)
+  const response = await requester.get(server.url)
   expect(response.body).toBe('Hello World!')
   await server.close()
 })
@@ -41,5 +43,7 @@ Created by [Ian Walter](https://iankwalter.com)
 [expressUrl]: https://expressjs.com/
 [npmImage]: https://img.shields.io/npm/v/@ianwalter/test-server.svg
 [npmUrl]: https://www.npmjs.com/package/@ianwalter/test-server
+[ciImage]: https://github.com/ianwalter/test-server/workflows/CI/badge.svg
+[ciUrl]: https://github.com/ianwalter/test-server/actions
 [ctsUrl]: https://github.com/lukechilds/create-test-server
 [licenseUrl]: https://github.com/ianwalter/test-server/blob/master/LICENSE
