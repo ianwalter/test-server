@@ -15,10 +15,10 @@ module.exports = function createExpressServer () {
   app.use(bodyParser.json())
 
   // Add error-handling middleware.
+  const ise = 'Internal Server Error'
   app.use(function errorHandlingMiddleware (err, req, res, next) {
     print.error(err)
-    res.status(err.statusCode || err.status || 500)
-    next()
+    res.status(err.statusCode || err.status || 500).send(err.message || ise)
   })
 
   // Create the server that will listen and execute the Koa app on all requests
