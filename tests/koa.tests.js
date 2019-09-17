@@ -45,7 +45,7 @@ test.skip('Koa cors', async (t, page) => {
   t.is(result, 'Moments')
 })
 
-test.skip('Koa error', async ({ pass }) => {
+test('Koa error', async ({ pass }) => {
   const server = await createKoaServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
