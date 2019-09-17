@@ -1,16 +1,16 @@
 const { test } = require('@ianwalter/bff')
 const r2 = require('r2')
-const createTestServer = require('..')
+const { createKoaServer } = require('..')
 
 test('server created', async ({ expect }) => {
-  const server = await createTestServer()
+  const server = await createKoaServer()
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()
   await server.close()
 })
 
 test('request handler', async ({ expect }) => {
-  const server = await createTestServer()
+  const server = await createKoaServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use(ctx => (ctx.body = msg))
   const body = await r2(server.url).text
@@ -19,7 +19,7 @@ test('request handler', async ({ expect }) => {
 })
 
 test('json response', async ({ expect }) => {
-  const server = await createTestServer()
+  const server = await createKoaServer()
   server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
   const body = await r2(server.url).text
   expect(body).toMatchSnapshot()
@@ -27,7 +27,7 @@ test('json response', async ({ expect }) => {
 })
 
 test('json request', async ({ expect }) => {
-  const server = await createTestServer()
+  const server = await createKoaServer()
   server.use(ctx => (ctx.body = ctx.request.body))
   const json = { name: 'When Am I Gonna Lose You' }
   const body = await r2.post(server.url, { json }).json
@@ -46,7 +46,7 @@ test('json request', async ({ expect }) => {
 // })
 
 test('error', async ({ pass }) => {
-  const server = await createTestServer()
+  const server = await createKoaServer()
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
     await r2(server.url).json
