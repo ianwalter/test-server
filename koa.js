@@ -18,6 +18,7 @@ module.exports = function createKoaServer (options = defaultOptions) {
     } catch (err) {
       print.error(err)
       ctx.status = err.statusCode || err.status || 500
+      ctx.body = err.message || 'Internal Server Error'
       ctx.app.emit('error', err, ctx)
     }
   })

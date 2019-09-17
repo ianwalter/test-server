@@ -4,9 +4,7 @@ const bodyParser = require('body-parser')
 const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 
-const defaultOptions = { cors: false }
-
-module.exports = function createExpressServer (options = defaultOptions) {
+module.exports = function createExpressServer () {
   // Create the Exoress app instance.
   const app = express()
 
@@ -17,9 +15,10 @@ module.exports = function createExpressServer (options = defaultOptions) {
   app.use(bodyParser.json())
 
   // Add error-handling middleware.
+  const ise = 'Internal Server Error'
   app.use(function errorHandlingMiddleware (err, req, res, next) {
     print.error(err)
-    res.status(err.statusCode || err.status || 500)
+    res.status(err.statusCode || err.status || 500).send(err.message || ise)
   })
 
   // Create the server that will listen and execute the Koa app on all requests
