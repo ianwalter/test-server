@@ -47,7 +47,7 @@ test.skip('Express cors', async (t, page) => {
 
 test('Express error', async ({ pass }) => {
   const server = await createExpressServer()
-  server.use((req, res, next) => next(new Error('Test Error')))
+  server.use((req, res, next) => next(new Error('Demo Error')))
   server.useErrorMiddleware()
   try {
     await requester.get(server.url)

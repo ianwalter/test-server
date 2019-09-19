@@ -39,7 +39,8 @@
     "koa": "^2.8.1",
     "koa-bodyparser": "^4.2.1",
     "koa-json": "^2.0.2",
-    "server-destroy": "^1.0.1"
+    "server-destroy": "^1.0.1",
+    "type-is": "^1.6.18"
   },
   "devDependencies": {
     "@ianwalter/bff": "^6.5.0",

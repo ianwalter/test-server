@@ -3,6 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
+const { hasBody } = require('type-is')
 
 module.exports = function createExpressServer () {
   // Create the Exoress app instance.
@@ -13,6 +14,14 @@ module.exports = function createExpressServer () {
 
   // Tell Express to parse requests with application/json content-type bodies.
   app.use(bodyParser.json())
+
+  // NOTE: Workaround until body-parser@2 is released.
+  app.use((req, res, next) => {
+    if (req.body && !hasBody(req)) {
+      req.body = undefined
+    }
+    next()
+  })
 
   // Create the server that will listen and execute the Koa app on all requests
   // it receives.
