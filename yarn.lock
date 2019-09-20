@@ -90,16 +90,16 @@
   resolved "https://registry.yarnpkg.com/@ianwalter/clone/-/clone-4.1.0.tgz#635860922699338da607b8e990ae5173e3e3e9c9"
   integrity sha512-UWlp3DtPvLgZkS3hy6ihHQATjQC1BtoJxk4PCO/v7r8m7P4g0WkdacadpUh0ze3yNqO+uFIRW2RX1boGz7feQQ==
 
-"@ianwalter/commits@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@ianwalter/commits/-/commits-0.0.5.tgz#b7e2b7d1f3d6f9c8ce2afc6ee9b730e97b399227"
-  integrity sha512-vjMcpKs4RUQKW0yCNXzmCW9S0h/Fx6xF1vE88Mr5ODhsrnE2uL0445QvPGA/PnB63OYbIlPIV50Rir6V0uVGrQ==
+"@ianwalter/commits@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@ianwalter/commits/-/commits-0.0.6.tgz#1b2663f9c2750199e817a017934f205a93459a79"
+  integrity sha512-U0eINURoSUnc9yRtaH28OQTn9QLS0L6b1BfdXDSRmaeBa14qTgzH8/dYANsDRFuB4TwIKO3YbhbkFyx86kedFQ==
   dependencies:
     "@ianwalter/cli" "^1.2.0"
-    "@ianwalter/print" "^3.0.1"
-    execa "^2.0.3"
+    "@ianwalter/print" "^3.3.1"
+    execa "^2.0.4"
     marked "^0.7.0"
-    marked-terminal "^3.2.0"
+    marked-terminal "^3.3.0"
     strip "^3.0.0"
 
 "@ianwalter/eslint-config@^2.4.0":
@@ -131,18 +131,6 @@
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/@ianwalter/merge/-/merge-5.0.0.tgz#972b3cd668ab87416fba1af99186cd83d34d687f"
   integrity sha512-Z+Xn8dT0ApkjGizdwMQaCgsAyHO+zKhCC2OYO7lEYLs1IdCzXtRUYah3vkIWT8/Ad94ni0rxtR39VTRWJE1/Qw==
-
-"@ianwalter/print@^3.0.1":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@ianwalter/print/-/print-3.1.0.tgz#8195e77a55eddab0815a2865858e27de9e6d7c3f"
-  integrity sha512-rlsigede8Gq+VauG0KhPAJqlaFq4IM/DqBKLfawGeuwLOKQevTZTySQvYZ9yQJDdLZZuRG7yEkxEL4o50JXNQg==
-  dependencies:
-    "@ianwalter/clone" "^4.1.0"
-    "@ianwalter/log" "^3.0.0"
-    chalk "^2.4.2"
-    chromafi ianwalter/chromafi
-    has-ansi "^3.0.0"
-    has-emoji "^1.1.0"
 
 "@ianwalter/print@^3.2.0":
   version "3.2.0"
@@ -183,14 +171,14 @@
     puppeteer "^1.11.0"
     webpack "^4.29.3"
 
-"@ianwalter/release@^3.0.3":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-3.0.3.tgz#c39aa6d0b4858789cd2f18c955dc42d8b2d44a2d"
-  integrity sha512-1rgBnU/S+sHWYi9ZfFQSjsrzOh/YkOiMZW39bglHvWCKJob7kw7Bpz843V4fDw59y7M5QUHKa0dVaBMVp7gl/w==
+"@ianwalter/release@^3.0.5":
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@ianwalter/release/-/release-3.0.5.tgz#7827583766e3d5cf7e6e8c93280a7695029c203e"
+  integrity sha512-WWdqa5fu04iSOAdcty2khPBLmzdMcpsShwY7oqOKWxtnI4qtWXzTPGH4mPa7kBB6uM4c2RYK9TwLnkoGKpIhfg==
   dependencies:
     "@ianwalter/cli" "^1.2.0"
-    "@ianwalter/commits" "^0.0.5"
-    "@ianwalter/print" "^3.2.0"
+    "@ianwalter/commits" "^0.0.6"
+    "@ianwalter/print" "^3.3.1"
     "@ianwalter/update-package" "^0.0.2"
     common-tags "^1.8.0"
     execa "^2.0.4"
@@ -1943,21 +1931,6 @@ evp_bytestokey@^1.0.0, evp_bytestokey@^1.0.3:
     md5.js "^1.3.4"
     safe-buffer "^5.1.1"
 
-execa@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/execa/-/execa-2.0.3.tgz#4b84301b33042cfb622771e886ed0b10e5634642"
-  integrity sha512-iM124nlyGSrXmuyZF1EMe83ESY2chIYVyDRZKgmcDynid2Q2v/+GuE7gNMl6Sy9Niwf4MC0DDxagOxeMPjuLsw==
-  dependencies:
-    cross-spawn "^6.0.5"
-    get-stream "^5.0.0"
-    is-stream "^2.0.0"
-    merge-stream "^2.0.0"
-    npm-run-path "^3.0.0"
-    onetime "^5.1.0"
-    p-finally "^2.0.0"
-    signal-exit "^3.0.2"
-    strip-final-newline "^2.0.0"
-
 execa@^2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/execa/-/execa-2.0.4.tgz#2f5cc589c81db316628627004ea4e37b93391d8e"
@@ -3259,18 +3232,6 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
-
-marked-terminal@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/marked-terminal/-/marked-terminal-3.2.0.tgz#3fc91d54569332bcf096292af178d82219000474"
-  integrity sha512-Yr1yVS0BbDG55vx7be1D0mdv+jGs9AW563o/Tt/7FTsId2J0yqhrTeXAqq/Q0DyyXltIn6CSxzesQuFqXgafjQ==
-  dependencies:
-    ansi-escapes "^3.1.0"
-    cardinal "^2.1.1"
-    chalk "^2.4.1"
-    cli-table "^0.3.1"
-    node-emoji "^1.4.1"
-    supports-hyperlinks "^1.0.1"
 
 marked-terminal@^3.3.0:
   version "3.3.0"
