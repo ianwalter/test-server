@@ -4,6 +4,7 @@ const bodyParser = require('body-parser')
 const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 const { hasBody } = require('type-is')
+const compression = require('compression')
 
 module.exports = function createExpressServer () {
   // Create the Exoress app instance.
@@ -22,6 +23,9 @@ module.exports = function createExpressServer () {
     }
     next()
   })
+
+  //
+  app.use(compression())
 
   // Create the server that will listen and execute the Koa app on all requests
   // it receives.

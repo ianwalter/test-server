@@ -4,6 +4,7 @@ const json = require('koa-json')
 const { print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 const bodyParser = require('koa-bodyparser')
+const compress = require('koa-compress')
 
 const defaultOptions = { cors: false }
 
@@ -28,6 +29,9 @@ module.exports = function createKoaServer (options = defaultOptions) {
 
   // Use middleware that automatically pretty-prints JSON responses.
   app.use(json())
+
+  //
+  app.use(compress())
 
   // If CORS is disabled, add the Access-Control-Allow-Origin header that
   // accepts all requests to the response.
