@@ -33,7 +33,7 @@
     "test": "bff"
   },
   "dependencies": {
-    "@ianwalter/print": "^3.3.1",
+    "@ianwalter/print": "^3.4.0",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "express": "^4.17.1",
@@ -46,11 +46,11 @@
   },
   "devDependencies": {
     "@ianwalter/bff": "^6.5.0",
-    "@ianwalter/eslint-config": "^2.4.0",
+    "@ianwalter/eslint-config": "^3.0.0",
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "@ianwalter/release": "^3.0.5",
     "@ianwalter/renovate-config": "^1.2.0",
-    "@ianwalter/requester": "^1.8.0"
+    "@ianwalter/requester": "^1.9.0"
   },
   "eslintConfig": {
     "root": true,
