@@ -2,14 +2,14 @@ const { test } = require('@ianwalter/bff')
 const { requester } = require('@ianwalter/requester')
 const { createExpressServer } = require('..')
 
-test.only('Express server created', async ({ expect }) => {
+test('Express server created', async ({ expect }) => {
   const server = await createExpressServer()
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()
   await server.close()
 })
 
-test.only('Express request handler', async ({ expect }) => {
+test('Express request handler', async ({ expect }) => {
   const server = await createExpressServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use((req, res) => res.send(msg))
@@ -18,7 +18,7 @@ test.only('Express request handler', async ({ expect }) => {
   await server.close()
 })
 
-test.only('Express json response', async ({ expect }) => {
+test('Express json response', async ({ expect }) => {
   const server = await createExpressServer()
   server.use((req, res) => res.json({ name: 'Out There On the Ice' }))
   const { body } = await requester.get(server.url)
