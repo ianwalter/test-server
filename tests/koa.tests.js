@@ -2,7 +2,7 @@ const { test } = require('@ianwalter/bff')
 const { requester } = require('@ianwalter/requester')
 const { createKoaServer } = require('..')
 
-test('Koa server created', async ({ expect }) => {
+test.only('Koa server created', async ({ expect }) => {
   const server = await createKoaServer()
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()

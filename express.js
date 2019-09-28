@@ -6,7 +6,7 @@ const enableDestroy = require('server-destroy')
 const { hasBody } = require('type-is')
 const compression = require('compression')
 
-module.exports = function createExpressServer () {
+module.exports = function createExpressServer (options = {}) {
   // Create the Exoress app instance.
   const app = express()
 
@@ -52,7 +52,7 @@ module.exports = function createExpressServer () {
 
   // Return the Koa app instance when the server has started listening.
   return new Promise((resolve, reject) => {
-    server.listen(process.env.TEST_SERVER_PORT, err => {
+    server.listen(options.port, err => {
       if (err) {
         reject(err)
       } else {

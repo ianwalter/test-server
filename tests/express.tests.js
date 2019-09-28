@@ -2,14 +2,14 @@ const { test } = require('@ianwalter/bff')
 const { requester } = require('@ianwalter/requester')
 const { createExpressServer } = require('..')
 
-test('Express server created', async ({ expect }) => {
+test.only('Express server created', async ({ expect }) => {
   const server = await createExpressServer()
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()
   await server.close()
 })
 
-test('Express request handler', async ({ expect }) => {
+test.only('Express request handler', async ({ expect }) => {
   const server = await createExpressServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use((req, res) => res.send(msg))

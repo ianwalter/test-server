@@ -59,7 +59,7 @@ module.exports = function createKoaServer (options = defaultOptions) {
 
   // Return the Koa app instance when the server has started listening.
   return new Promise((resolve, reject) => {
-    server.listen(process.env.TEST_SERVER_PORT, err => {
+    server.listen(options.port, err => {
       if (err) {
         reject(err)
       } else {
