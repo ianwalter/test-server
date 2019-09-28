@@ -18,7 +18,7 @@ test.only('Express request handler', async ({ expect }) => {
   await server.close()
 })
 
-test('Express json response', async ({ expect }) => {
+test.only('Express json response', async ({ expect }) => {
   const server = await createExpressServer()
   server.use((req, res) => res.json({ name: 'Out There On the Ice' }))
   const { body } = await requester.get(server.url)
