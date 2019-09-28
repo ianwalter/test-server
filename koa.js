@@ -27,6 +27,12 @@ module.exports = function createKoaServer (options = defaultOptions) {
     }
   })
 
+  // Add simple middleware to help with debugging requests.
+  app.use((ctx, next) => {
+    print.debug('Koa request', { url: ctx.url, headers: ctx.headers })
+    next()
+  })
+
   // Add the bodyparser middleware that can parse a request body into json, etc.
   app.use(bodyParser({ enableTypes: ['json', 'form', 'text'] }))
 

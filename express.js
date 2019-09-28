@@ -13,6 +13,12 @@ module.exports = function createExpressServer (options = {}) {
   // Create the Express app instance.
   const app = express()
 
+  // Add a simple middleware to help with debbugging requests.
+  app.use((req, res, next) => {
+    print.debug('Express request', { url: req.url, headers: req.headers })
+    next()
+  })
+
   // Tell Express to parse requests with text content-type bodies.
   app.use(bodyParser.text())
 
