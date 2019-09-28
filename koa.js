@@ -1,7 +1,7 @@
 const http = require('http')
 const Koa = require('koa')
 const json = require('koa-json')
-const { print } = require('@ianwalter/print')
+const { Print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 const bodyParser = require('koa-bodyparser')
 const compress = require('koa-compress')
@@ -9,6 +9,9 @@ const compress = require('koa-compress')
 const defaultOptions = { cors: false }
 
 module.exports = function createKoaServer (options = defaultOptions) {
+  // Create the print logger instance.
+  const print = new Print({ level: options.logLevel || 'info' })
+
   // Create the Koa app instance.
   const app = new Koa()
 
@@ -66,6 +69,8 @@ module.exports = function createKoaServer (options = defaultOptions) {
         // Add the server's port and URL to the app so it's easily accessible.
         app.port = server.address().port
         app.url = `http://localhost:${app.port}`
+
+        print.debug('App listening', app)
 
         resolve(app)
       }

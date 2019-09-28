@@ -27,7 +27,7 @@ test('Express json response', async ({ expect }) => {
 })
 
 test('Express json request', async ({ expect }) => {
-  const server = await createExpressServer()
+  const server = await createExpressServer({ logLevel: 'debug' })
   server.use((req, res) => res.json(req.body))
   const body = { name: 'When Am I Gonna Lose You' }
   const response = await requester.post(server.url, { body })

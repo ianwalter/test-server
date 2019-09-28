@@ -1,13 +1,16 @@
 const http = require('http')
 const express = require('express')
 const bodyParser = require('body-parser')
-const { print } = require('@ianwalter/print')
+const { Print } = require('@ianwalter/print')
 const enableDestroy = require('server-destroy')
 const { hasBody } = require('type-is')
 const compression = require('compression')
 
 module.exports = function createExpressServer (options = {}) {
-  // Create the Exoress app instance.
+  // Create the print logger instance.
+  const print = new Print({ level: options.logLevel || 'info' })
+
+  // Create the Express app instance.
   const app = express()
 
   // Tell Express to parse requests with text content-type bodies.
@@ -59,6 +62,8 @@ module.exports = function createExpressServer (options = {}) {
         // Add the server's port and URL to the app so it's easily accessible.
         app.port = server.address().port
         app.url = `http://localhost:${app.port}`
+        
+        print.debug('App listening', app)
 
         resolve(app)
       }
