@@ -9,7 +9,7 @@ test('Koa server created', async ({ expect }) => {
   await server.close()
 })
 
-test('Koa request handler', async ({ expect }) => {
+test.only('Koa request handler', async ({ expect }) => {
   const server = await createKoaServer()
   const msg = 'Nobody Lost, Nobody Found'
   server.use(ctx => (ctx.body = msg))
