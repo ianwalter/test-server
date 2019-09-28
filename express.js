@@ -63,7 +63,7 @@ module.exports = function createExpressServer (options = {}) {
         app.port = server.address().port
         app.url = `http://localhost:${app.port}`
 
-        print.debug('App listening', app)
+        print.debug('Server listening at', app.url)
 
         resolve(app)
       }

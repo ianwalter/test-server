@@ -2,15 +2,17 @@ const { test } = require('@ianwalter/bff')
 const { requester } = require('@ianwalter/requester')
 const { createKoaServer } = require('..')
 
+const serverOptions = { logLevel: 'debug' }
+
 test.only('Koa server created', async ({ expect }) => {
-  const server = await createKoaServer()
+  const server = await createKoaServer(serverOptions)
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()
   await server.close()
 })
 
 test.only('Koa request handler', async ({ expect }) => {
-  const server = await createKoaServer()
+  const server = await createKoaServer(serverOptions)
   const msg = 'Nobody Lost, Nobody Found'
   server.use(ctx => (ctx.body = msg))
   const { body } = await requester.get(server.url)
@@ -19,7 +21,7 @@ test.only('Koa request handler', async ({ expect }) => {
 })
 
 test('Koa json response', async ({ expect }) => {
-  const server = await createKoaServer()
+  const server = await createKoaServer(serverOptions)
   server.use(ctx => (ctx.body = { name: 'Out There On the Ice' }))
   const { body } = await requester.get(server.url)
   expect(body).toMatchSnapshot()
@@ -27,7 +29,7 @@ test('Koa json response', async ({ expect }) => {
 })
 
 test('Koa json request', async ({ expect }) => {
-  const server = await createKoaServer()
+  const server = await createKoaServer(serverOptions)
   server.use(ctx => (ctx.body = ctx.request.body))
   const body = { name: 'When Am I Gonna Lose You' }
   const response = await requester.post(server.url, { body })
@@ -36,7 +38,7 @@ test('Koa json request', async ({ expect }) => {
 })
 
 test.skip('Koa cors', async (t, page) => {
-  const server = await createKoaServer()
+  const server = await createKoaServer(serverOptions)
   server.use(ctx => (ctx.body = 'Moments'))
   const result = await page.evaluate(
     url => window.fetch(url).then(response => response.text()),
@@ -46,7 +48,7 @@ test.skip('Koa cors', async (t, page) => {
 })
 
 test.skip('Koa error', async ({ pass }) => {
-  const server = await createKoaServer()
+  const server = await createKoaServer(serverOptions)
   server.use(() => new Promise((resolve, reject) => reject(new Error('Nooo!'))))
   try {
     await requester.get(server.url)

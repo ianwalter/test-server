@@ -2,15 +2,17 @@ const { test } = require('@ianwalter/bff')
 const { requester } = require('@ianwalter/requester')
 const { createExpressServer } = require('..')
 
+const serverOptions = { logLevel: 'debug' }
+
 test('Express server created', async ({ expect }) => {
-  const server = await createExpressServer()
+  const server = await createExpressServer(serverOptions)
   expect(server.port).toBeGreaterThan(0)
   expect(server.url).toBeTruthy()
   await server.close()
 })
 
 test('Express request handler', async ({ expect }) => {
-  const server = await createExpressServer()
+  const server = await createExpressServer(serverOptions)
   const msg = 'Nobody Lost, Nobody Found'
   server.use((req, res) => res.send(msg))
   const { body } = await requester.get(server.url)
@@ -19,7 +21,7 @@ test('Express request handler', async ({ expect }) => {
 })
 
 test('Express json response', async ({ expect }) => {
-  const server = await createExpressServer()
+  const server = await createExpressServer(serverOptions)
   server.use((req, res) => res.json({ name: 'Out There On the Ice' }))
   const { body } = await requester.get(server.url)
   expect(body).toMatchSnapshot()
@@ -36,7 +38,7 @@ test('Express json request', async ({ expect }) => {
 })
 
 test.skip('Express cors', async (t, page) => {
-  const server = await createExpressServer()
+  const server = await createExpressServer(serverOptions)
   server.use(ctx => (ctx.body = 'Moments'))
   const result = await page.evaluate(
     url => window.fetch(url).then(response => response.text()),
@@ -46,7 +48,7 @@ test.skip('Express cors', async (t, page) => {
 })
 
 test('Express error', async ({ pass }) => {
-  const server = await createExpressServer()
+  const server = await createExpressServer(serverOptions)
   server.use((req, res, next) => next(new Error('Demo Error')))
   server.useErrorMiddleware()
   try {
