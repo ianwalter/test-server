@@ -45,7 +45,7 @@
     "type-is": "^1.6.18"
   },
   "devDependencies": {
-    "@ianwalter/bff": "^9.9.1",
+    "@ianwalter/bff": "^9.13.0",
     "@ianwalter/eslint-config": "^6.2.0",
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "@ianwalter/release": "^5.0.2",
