@@ -49,7 +49,7 @@
     "@ianwalter/eslint-config": "^6.2.0",
     "@ianwalter/puppeteer-helper": "^4.0.0",
     "@ianwalter/release": "^5.0.2",
-    "@ianwalter/renovate-config": "^1.4.3",
+    "@ianwalter/renovate-config": "^1.5.0",
     "@ianwalter/requester": "^2.2.0"
   },
   "eslintConfig": {
